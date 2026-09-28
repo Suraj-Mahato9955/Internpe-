@@ -1,1 +1,998 @@
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Blog - NovaShop</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <style>
+        /* ========================================
+           BLOG PAGE
+        ======================================== */
+
+        .blog-page {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 24px;
+            box-sizing: border-box;
+        }
+
+        /* Page Heading */
+        .blog-page > .section-heading {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 60px;
+        }
+
+        .blog-page .section-subtitle {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            opacity: 0.7;
+        }
+
+        .blog-page .section-heading h1 {
+            font-size: 44px;
+            line-height: 1.2;
+            margin: 0 0 15px;
+        }
+
+        .blog-page .section-heading > p:last-child {
+            font-size: 15px;
+            line-height: 1.8;
+            opacity: 0.7;
+            margin: 0;
+        }
+
+
+        /* ========================================
+           FEATURED BLOG
+        ======================================== */
+
+        .featured-blog {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            min-height: 430px;
+            margin-bottom: 80px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .featured-blog-image {
+            width: 100%;
+            height: 100%;
+            min-height: 430px;
+        }
+
+        .featured-blog-image img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .featured-blog-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 50px;
+        }
+
+        .blog-category {
+            display: inline-block;
+            width: fit-content;
+            margin-bottom: 15px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            color: #00d4aa;
+        }
+
+        .featured-blog-content h2 {
+            font-size: 30px;
+            line-height: 1.35;
+            margin: 0 0 18px;
+        }
+
+        .featured-blog-content > p {
+            font-size: 14px;
+            line-height: 1.8;
+            opacity: 0.7;
+            margin: 0 0 25px;
+        }
+
+
+        /* ========================================
+           BLOG META
+        ======================================== */
+
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 18px;
+            margin-bottom: 25px;
+        }
+
+        .blog-meta span {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 12px;
+            opacity: 0.6;
+        }
+
+        .blog-meta i {
+            font-size: 12px;
+        }
+
+        .blog-read-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            width: fit-content;
+            padding: 12px 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            color: #06100e;
+            background: #00d4aa;
+            transition: transform 0.25s ease, opacity 0.25s ease;
+        }
+
+        .blog-read-btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+
+        /* ========================================
+           BLOG GRID
+        ======================================== */
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .blog-card {
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.02);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(0, 212, 170, 0.3);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .blog-image img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .blog-card:hover .blog-image img {
+            transform: scale(1.05);
+        }
+
+        .blog-content {
+            padding: 25px;
+        }
+
+        .blog-content .blog-category {
+            margin-bottom: 10px;
+        }
+
+        .blog-content h3 {
+            font-size: 18px;
+            line-height: 1.45;
+            margin: 0 0 12px;
+        }
+
+        .blog-content > p {
+            font-size: 13px;
+            line-height: 1.75;
+            opacity: 0.65;
+            margin: 0 0 20px;
+        }
+
+        .blog-content .blog-meta {
+            justify-content: space-between;
+            margin-bottom: 0;
+        }
+
+        .blog-content .blog-meta a {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            color: #00d4aa;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .blog-content .blog-meta a:hover {
+            opacity: 0.75;
+        }
+
+
+        /* ========================================
+           NEWSLETTER
+        ======================================== */
+
+        .newsletter {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 80px 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .newsletter-content {
+            width: 100%;
+            max-width: 750px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .newsletter .section-subtitle {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            opacity: 0.7;
+            margin-bottom: 10px;
+        }
+
+        .newsletter h2 {
+            font-size: 32px;
+            margin: 0 0 12px;
+        }
+
+        .newsletter p {
+            font-size: 14px;
+            line-height: 1.7;
+            opacity: 0.65;
+        }
+
+        .newsletter form {
+            display: flex;
+            max-width: 550px;
+            margin: 30px auto 0;
+            gap: 10px;
+        }
+
+        .newsletter input {
+            flex: 1;
+            min-width: 0;
+            padding: 14px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            outline: none;
+            background: rgba(255, 255, 255, 0.04);
+            color: inherit;
+            font-family: inherit;
+        }
+
+        .newsletter input::placeholder {
+            opacity: 0.5;
+        }
+
+        .newsletter button {
+            border: none;
+            border-radius: 8px;
+            padding: 14px 20px;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: 600;
+            background: #00d4aa;
+            color: #06100e;
+        }
+
+        .newsletter button i {
+            margin-left: 7px;
+        }
+
+
+        /* ========================================
+           TABLET
+        ======================================== */
+
+        @media (max-width: 950px) {
+
+            .featured-blog {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-blog-image {
+                height: 350px;
+                min-height: 350px;
+            }
+
+            .featured-blog-content {
+                padding: 40px;
+            }
+
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+
+        /* ========================================
+           MOBILE
+        ======================================== */
+
+        @media (max-width: 600px) {
+
+            .blog-page {
+                padding: 55px 18px;
+            }
+
+            .blog-page > .section-heading {
+                margin-bottom: 40px;
+            }
+
+            .blog-page .section-heading h1 {
+                font-size: 32px;
+            }
+
+            .featured-blog {
+                margin-bottom: 60px;
+                border-radius: 15px;
+            }
+
+            .featured-blog-image {
+                height: 260px;
+                min-height: 260px;
+            }
+
+            .featured-blog-content {
+                padding: 28px 22px;
+            }
+
+            .featured-blog-content h2 {
+                font-size: 24px;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .blog-image {
+                height: 230px;
+            }
+
+            .newsletter {
+                padding: 60px 18px;
+            }
+
+            .newsletter h2 {
+                font-size: 26px;
+            }
+
+            .newsletter form {
+                flex-direction: column;
+            }
+
+            .newsletter button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header id="header">
+
+        <div class="nav">
+
+            <a href="index.html" class="logo">
+                NovaShop
+            </a>
+
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="shop.html">Shop</a>
+                <a href="about.html">About</a>
+                <a href="blog.html" class="active">Blog</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+
+            <div class="nav-actions">
+
+                <a
+                    href="wishlist.html"
+                    class="nav-icon"
+                    title="Wishlist"
+                >
+                    <i class="fa-regular fa-heart"></i>
+                </a>
+
+                <a
+                    href="cart.html"
+                    class="cart-link"
+                    title="Shopping Cart"
+                >
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span id="cart-count">0</span>
+                </a>
+
+                <button
+                    class="menu-toggle"
+                    id="menu-toggle"
+                    type="button"
+                    aria-label="Open Menu"
+                    aria-expanded="false"
+                >
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= BLOG ================= -->
+
+    <main>
+
+        <section class="blog-page">
+
+            <!-- Page Heading -->
+
+            <div class="section-heading">
+
+                <p class="section-subtitle">
+                    NOVA INSIGHTS
+                </p>
+
+                <h1>
+                    Our Blog
+                </h1>
+
+                <p>
+                    Discover shopping tips, style inspiration,
+                    technology guides and more.
+                </p>
+
+            </div>
+
+
+            <!-- ================= FEATURED ARTICLE ================= -->
+
+            <article class="featured-blog">
+
+                <div class="featured-blog-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1200&q=80"
+                        alt="Smart shopping"
+                    >
+
+                </div>
+
+
+                <div class="featured-blog-content">
+
+                    <span class="blog-category">
+                        SHOPPING GUIDE
+                    </span>
+
+                    <h2>
+                        How to Build a Smarter Online Shopping Experience
+                    </h2>
+
+                    <p>
+                        Online shopping should be simple and enjoyable.
+                        Learn how to compare products, understand reviews
+                        and make better purchasing decisions.
+                    </p>
+
+                    <div class="blog-meta">
+
+                        <span>
+                            <i class="fa-regular fa-calendar"></i>
+                            September 2026
+                        </span>
+
+                        <span>
+                            <i class="fa-regular fa-clock"></i>
+                            5 min read
+                        </span>
+
+                    </div>
+
+                    <a href="#" class="blog-read-btn">
+                        Read Article
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- ================= BLOG GRID ================= -->
+
+            <div class="blog-grid">
+
+                <!-- Blog 1 -->
+
+                <article class="blog-card">
+
+                    <div class="blog-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80"
+                            alt="Smart watch"
+                        >
+
+                    </div>
+
+                    <div class="blog-content">
+
+                        <span class="blog-category">
+                            TECHNOLOGY
+                        </span>
+
+                        <h3>
+                            Things to Consider Before Buying a Smartwatch
+                        </h3>
+
+                        <p>
+                            Battery life, features, design and compatibility
+                            are some important things to check.
+                        </p>
+
+                        <div class="blog-meta">
+
+                            <span>
+                                <i class="fa-regular fa-clock"></i>
+                                4 min read
+                            </span>
+
+                            <a href="#">
+                                Read More
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Blog 2 -->
+
+                <article class="blog-card">
+
+                    <div class="blog-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80"
+                            alt="Fashion clothing"
+                        >
+
+                    </div>
+
+                    <div class="blog-content">
+
+                        <span class="blog-category">
+                            FASHION
+                        </span>
+
+                        <h3>
+                            Simple Ways to Upgrade Your Everyday Style
+                        </h3>
+
+                        <p>
+                            Discover simple clothing combinations that
+                            can make your everyday look more polished.
+                        </p>
+
+                        <div class="blog-meta">
+
+                            <span>
+                                <i class="fa-regular fa-clock"></i>
+                                3 min read
+                            </span>
+
+                            <a href="#">
+                                Read More
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Blog 3 -->
+
+                <article class="blog-card">
+
+                    <div class="blog-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80"
+                            alt="Wireless headphones"
+                        >
+
+                    </div>
+
+                    <div class="blog-content">
+
+                        <span class="blog-category">
+                            GADGETS
+                        </span>
+
+                        <h3>
+                            What Makes a Good Pair of Wireless Headphones?
+                        </h3>
+
+                        <p>
+                            Explore the key features to consider when
+                            choosing headphones for everyday use.
+                        </p>
+
+                        <div class="blog-meta">
+
+                            <span>
+                                <i class="fa-regular fa-clock"></i>
+                                4 min read
+                            </span>
+
+                            <a href="#">
+                                Read More
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Blog 4 -->
+
+                <article class="blog-card">
+
+                    <div class="blog-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80"
+                            alt="Travel backpack"
+                        >
+
+                    </div>
+
+                    <div class="blog-content">
+
+                        <span class="blog-category">
+                            LIFESTYLE
+                        </span>
+
+                        <h3>
+                            Choosing the Right Backpack for Everyday Life
+                        </h3>
+
+                        <p>
+                            A practical guide to finding a backpack that
+                            fits your work, travel and daily needs.
+                        </p>
+
+                        <div class="blog-meta">
+
+                            <span>
+                                <i class="fa-regular fa-clock"></i>
+                                5 min read
+                            </span>
+
+                            <a href="#">
+                                Read More
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Blog 5 -->
+
+                <article class="blog-card">
+
+                    <div class="blog-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80"
+                            alt="Coffee mug"
+                        >
+
+                    </div>
+
+                    <div class="blog-content">
+
+                        <span class="blog-category">
+                            HOME
+                        </span>
+
+                        <h3>
+                            Creating a Better Coffee Corner at Home
+                        </h3>
+
+                        <p>
+                            Small changes can turn an ordinary corner
+                            into a comfortable and stylish coffee space.
+                        </p>
+
+                        <div class="blog-meta">
+
+                            <span>
+                                <i class="fa-regular fa-clock"></i>
+                                3 min read
+                            </span>
+
+                            <a href="#">
+                                Read More
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Blog 6 -->
+
+                <article class="blog-card">
+
+                    <div class="blog-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80"
+                            alt="Online shopping"
+                        >
+
+                    </div>
+
+                    <div class="blog-content">
+
+                        <span class="blog-category">
+                            TIPS
+                        </span>
+
+                        <h3>
+                            6 Simple Tips for Safer Online Shopping
+                        </h3>
+
+                        <p>
+                            Learn some practical habits that can help
+                            you shop online more safely.
+                        </p>
+
+                        <div class="blog-meta">
+
+                            <span>
+                                <i class="fa-regular fa-clock"></i>
+                                4 min read
+                            </span>
+
+                            <a href="#">
+                                Read More
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= NEWSLETTER ================= -->
+
+    <section class="newsletter">
+
+        <div class="newsletter-content">
+
+            <p class="section-subtitle">
+                STAY UPDATED
+            </p>
+
+            <h2>
+                Get the latest from NovaShop
+            </h2>
+
+            <p>
+                Subscribe for new products, shopping tips
+                and exclusive updates.
+            </p>
+
+            <form id="newsletter-form">
+
+                <input
+                    type="email"
+                    placeholder="Enter your email address"
+                    required
+                >
+
+                <button type="submit">
+                    Subscribe
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-container">
+
+            <!-- Brand -->
+
+            <div class="footer-box">
+
+                <h2>
+                    NovaShop
+                </h2>
+
+                <p>
+                    Discover quality products, modern style
+                    and a seamless shopping experience.
+                </p>
+
+                <div class="social-icons">
+
+                    <a href="#" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="#" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <a href="#" aria-label="Twitter">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Quick Links -->
+
+            <div class="footer-box">
+
+                <h3>
+                    Quick Links
+                </h3>
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="shop.html">
+                    Shop
+                </a>
+
+                <a href="about.html">
+                    About
+                </a>
+
+                <a href="blog.html">
+                    Blog
+                </a>
+
+            </div>
+
+
+            <!-- Customer Care -->
+
+            <div class="footer-box">
+
+                <h3>
+                    Customer Care
+                </h3>
+
+                <a href="contact.html">
+                    Contact Us
+                </a>
+
+                <a href="cart.html">
+                    Shopping Cart
+                </a>
+
+                <a href="wishlist.html">
+                    Wishlist
+                </a>
+
+                <a href="checkout.html">
+                    Checkout
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 NovaShop. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
