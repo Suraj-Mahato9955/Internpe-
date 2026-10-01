@@ -1,1 +1,270 @@
 
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   BODY / BACKGROUND
+========================= */
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+
+    background: linear-gradient(135deg, #153677, #4e085f);
+
+    padding: 10px;
+}
+
+
+/* =========================
+   TODO APP
+========================= */
+
+.todo-app {
+    width: 100%;
+    max-width: 540px;
+
+    background: #ffffff;
+
+    margin: 100px auto 20px;
+
+    padding: 40px 30px 70px;
+
+    border-radius: 10px;
+}
+
+
+/* =========================
+   HEADING
+========================= */
+
+.todo-app h2 {
+    color: #002765;
+
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 20px;
+
+    font-size: 28px;
+}
+
+.title-icon {
+    font-size: 28px;
+
+    margin-left: 10px;
+}
+
+
+/* =========================
+   INPUT SECTION
+========================= */
+
+.row {
+    display: flex;
+    align-items: center;
+
+    justify-content: space-between;
+
+    background: #edeef0;
+
+    border-radius: 30px;
+
+    padding-left: 20px;
+
+    margin-bottom: 25px;
+}
+
+
+/* Input */
+
+#input-box {
+    flex: 1;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    padding: 10px;
+
+    font-size: 16px;
+}
+
+
+/* Add Button */
+
+#add-btn {
+    border: none;
+    outline: none;
+
+    padding: 16px 50px;
+
+    background: #ff5945;
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    border-radius: 40px;
+}
+
+#add-btn:hover {
+    background: #e84a37;
+}
+
+
+/* =========================
+   TASK LIST
+========================= */
+
+#list-container {
+    padding: 0;
+}
+
+
+/* Individual Task */
+
+#list-container li {
+    list-style: none;
+
+    font-size: 17px;
+
+    padding: 12px 50px 12px 50px;
+
+    user-select: none;
+
+    cursor: pointer;
+
+    position: relative;
+
+    min-height: 48px;
+
+    word-break: break-word;
+}
+
+
+/* =========================
+   UNCHECKED CIRCLE
+========================= */
+
+#list-container li::before {
+    content: "";
+
+    position: absolute;
+
+    height: 24px;
+    width: 24px;
+
+    border: 2px solid #555;
+
+    border-radius: 50%;
+
+    top: 9px;
+    left: 8px;
+
+    background: white;
+}
+
+
+/* =========================
+   COMPLETED TASK
+========================= */
+
+#list-container li.checked {
+    color: #777;
+
+    text-decoration: line-through;
+}
+
+
+/* Completed Check */
+
+#list-container li.checked::before {
+    content: "✓";
+
+    background: #ff5945;
+
+    border: 2px solid #ff5945;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    text-align: center;
+
+    line-height: 24px;
+}
+
+
+/* =========================
+   DELETE BUTTON
+========================= */
+
+#list-container li span {
+    position: absolute;
+
+    right: 0;
+    top: 5px;
+
+    width: 40px;
+    height: 40px;
+
+    font-size: 22px;
+
+    color: #555;
+
+    line-height: 40px;
+
+    text-align: center;
+
+    border-radius: 50%;
+}
+
+
+/* Delete Hover */
+
+#list-container li span:hover {
+    background: #edeef0;
+
+    color: #ff5945;
+}
+
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 600px) {
+
+    .todo-app {
+        margin-top: 50px;
+
+        padding: 30px 20px 50px;
+    }
+
+    .row {
+        padding-left: 15px;
+    }
+
+    #add-btn {
+        padding: 14px 25px;
+    }
+
+    .todo-app h2 {
+        font-size: 25px;
+    }
+
+}
