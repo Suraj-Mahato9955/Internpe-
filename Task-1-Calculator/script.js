@@ -8,7 +8,6 @@ function clearDisplay() {
     display.value = "";
 }
 
-// Last character delete karna
 function deleteLast() {
     display.value = display.value.slice(0, -1);
 }
