@@ -1,6 +1,5 @@
 let display = document.getElementById("display");
 
-// Display par number/operator show karna
 function appendValue(value) {
     display.value = display.value + value;
 }
