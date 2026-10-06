@@ -4,7 +4,6 @@ function appendValue(value) {
     display.value = display.value + value;
 }
 
-// Pura display clear karna
 function clearDisplay() {
     display.value = "";
 }
