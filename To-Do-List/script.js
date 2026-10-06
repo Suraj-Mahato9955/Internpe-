@@ -16,7 +16,6 @@ const listContainer = document.getElementById("list-container");
 
 function addTask() {
 
-    // Remove extra spaces
     const taskText = inputBox.value.trim();
 
 
