@@ -20,7 +20,6 @@ function addTask() {
     const taskText = inputBox.value.trim();
 
 
-    // Check empty input
     if (taskText === "") {
 
         alert("You must write something!");
