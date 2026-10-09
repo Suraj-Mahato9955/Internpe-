@@ -185,7 +185,6 @@
 }
 
 
-/* Completed Check */
 
 #list-container li.checked::before {
     content: "✓";
